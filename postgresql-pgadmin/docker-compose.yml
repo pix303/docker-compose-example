@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+
+  postgresdb:
+    container_name: postgres_container
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: mantainer
+      POSTGRES_PASSWORD: mantainer
+      POSTGRES_DB: appdb
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - psqlddata:/var/lib/postgresql/data/pgdata
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: mantainer@domain.it
+      PGADMIN_DEFAULT_PASSWORD: mantainer
+    ports:
+      - 5050:80
+    volumes:
+      - pgadmindata:/var/lib/pgadmin
+
+volumes:
+  psqlddata:
+  pgadmindata:
