@@ -12,7 +12,7 @@ services:
       POSTGRES_DB: appdb
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
-      - psqlddata:/var/lib/postgresql/data/pgdata
+      - psqldata:/var/lib/postgresql/data/pgdata
 
   pgadmin:
     container_name: pgadmin_container
@@ -26,5 +26,5 @@ services:
       - pgadmindata:/var/lib/pgadmin
 
 volumes:
-  psqlddata:
+  psqldata:
   pgadmindata:
